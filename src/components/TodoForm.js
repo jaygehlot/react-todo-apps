@@ -27,7 +27,7 @@ function handleSubmit(e) {
             {/* TextField and Button come from MaterialUI */}
             <TextField label="Task" 
                 name="task"
-                type="text" value={todo.task}    
+                type="outlined-basic" variant ="outlined" value={todo.task}    
                 onChange={handleTaskInputChange}> 
             </TextField>
 
