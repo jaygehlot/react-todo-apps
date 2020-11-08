@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import Typography from "@material-ui/core/Typography";
 
 const LOCAL_STORAGE_KEY = "react-todo-list-todos";
 
@@ -28,13 +28,14 @@ function App() {
 
   function toggleComplete(id) {
     setTodos(todos.map(todo => {
-        if (todos.id === id) {
+        if (todo.id === id) {
+          // if the todo item in the todo list is finished then for this id then return this object
           return {
             ...todo, 
             completed: !todo.completed
           };
         }
-        return todos;
+        return todo;
       }
     ));
   }
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>To Do List</p>
+      <Typography style={{ padding: 16}} variant="h1">To Do List</Typography>
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} 
                 toggleComplete={toggleComplete}
